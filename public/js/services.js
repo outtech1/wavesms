@@ -6,8 +6,10 @@ return{
     var password="wavecell";
     var subaccountid="is_std";
     var datetime = data.date+' T '+data.time;
-
-    return $http.get('http://wms1.wavecell.com/Send.asmx/SendMT?AccountId='+accountid+'&Body='+data.body+'&Destination='+data.destination+'&Encoding=ASCII&Password='+password+'&ScheduledDateTime=&Source='+data.source+'&SubAccountId='+subaccountid+'&UMID='); 
+    console.log(data.date);
+    console.log(data.time)
+    console.log(datetime);
+    return $http.get('http://wms1.wavecell.com/Send.asmx/SendMT?AccountId='+accountid+'&Body='+data.body+'&Destination='+data.destination+'&Encoding=ASCII&Password='+password+'&ScheduledDateTime='+datetime+'&Source='+data.source+'&SubAccountId='+subaccountid+'&UMID='); 
   //   .then(function successCallback(response) {
   //     console.log("success");
   //     console.log(response);

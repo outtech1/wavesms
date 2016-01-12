@@ -80,8 +80,8 @@
           <div class="form-group col-lg-3">
             <i class="glyphicon glyphicon-calendar"></i>
             <label for="date" class="h4">Date</label>
-             <p class="input-group">
-              <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data.date" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+             <p class="input-group datepickerWavecell">
+              <input  type="text" class="form-control " uib-datepicker-popup="{{format}}" ng-model="data.date" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
@@ -90,11 +90,13 @@
           <div class="form-group col-lg-3">
             <i class="glyphicon glyphicon-time"></i>
             <label for="time" class="h4">Time</label>
-           <uib-timepicker ng-model="data.date" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+           <uib-timepicker  ng-model="data.time" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
           </div>
-          <div class="buttontime col-lg-4">
+
+          <div class="buttontime col-lg-10">
               <button class="btn btn-xs btn-primary" id="timebutton">Set Current Date and Time</button>
           </div>
+          <br>
           <div class="form-group col-lg-10">
             <i class="glyphicon glyphicon-pencil"></i>
             <label for="message" class="h4">Message</label>
@@ -104,8 +106,8 @@
             <button type="submit" id="form-submit" class="btn btn-success submit btn-lg" ng-click="sendData(data)">Send</button>
           </div>
          <!--  {{result}} -->
-         Console Log:
-         {{data}}
+        <!--  Console Log:
+         {{data}} -->
         </div>
       </div>
     </div>

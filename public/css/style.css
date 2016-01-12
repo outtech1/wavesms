@@ -6,6 +6,10 @@ body {
     background-size: cover;
     font-family: 'Montserrat', sans-serif !important;
 }
+
+.datepickerWavecell{
+	padding-top: 32px !important; 
+}
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
   .full button span {
     background-color: limegreen;
@@ -77,6 +81,6 @@ body {
 
 .buttontime{
 	display: inline-block;
-	padding-top: 45px;
+	margin-bottom: 20px;
 	margin-left: -10px;
 }
