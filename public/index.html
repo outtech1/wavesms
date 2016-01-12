@@ -21,7 +21,7 @@
   <script src="lib/ionic/js/angular/angular-resource.js"></script>
   <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
   <script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
-
+  <script src="lib/ionic/js/ui-bootstrap-tpls-1.0.3.min.js"></script>
 
   <!-- your app's js -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -32,24 +32,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 
+
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script>
 
   <script>
-  $(function() {
-    $("#datepicker").datepicker();
-      $('#timebutton').on('click', function (){
-      $('#datepicker').datepicker({
-  dateFormat: 'yy-mm-dd',
-  altField: '#thealtdate',
-  altFormat: 'yy-mm-dd'});
-    });
-    $('#timepicker').timepicker();
-    $('#timebutton').on('click', function (){
-      $('#timepicker').timepicker('setTime', new Date());
-    });
-  });
+  // $(function() {
+  //  
+   
+
+
+ 
+  // });
   </script>
 </head>
 <body ng-app="starter">
@@ -78,15 +73,24 @@
             <label for="number" class="h4">Recipient</label>
             <input type="text" class="form-control" ng-model="data.destination" placeholder="Enter Number e.g. (09391234567)" pattern="[0-9]+" required>
           </div>
+
+        
+
+
           <div class="form-group col-lg-3">
             <i class="glyphicon glyphicon-calendar"></i>
             <label for="date" class="h4">Date</label>
-            <input type="text" id="datepicker" ng-model="data.date" class="form-control datepicker" placeholder="Enter Date">
+             <p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data.date" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
           </div>
           <div class="form-group col-lg-3">
             <i class="glyphicon glyphicon-time"></i>
             <label for="time" class="h4">Time</label>
-            <input type="text" id="timepicker" ng-model="data.time" class="form-control timepicker" placeholder="Enter Time">
+           <uib-timepicker ng-model="data.date" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
           </div>
           <div class="buttontime col-lg-4">
               <button class="btn btn-xs btn-primary" id="timebutton">Set Current Date and Time</button>
@@ -99,7 +103,9 @@
           <div class="col-lg-10 send">
             <button type="submit" id="form-submit" class="btn btn-success submit btn-lg" ng-click="sendData(data)">Send</button>
           </div>
-          {{result}}
+         <!--  {{result}} -->
+         Console Log:
+         {{data}}
         </div>
       </div>
     </div>
