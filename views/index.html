@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>WaveCell SMS</title>
+
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+  --><link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+  <script src="lib/ionic/js/angular/angular.js"></script>
+  <script src="lib/ionic/js/angular/angular-animate.js"></script>
+  <script src="lib/ionic/js/angular/angular-resource.js"></script>
+  <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+  <script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
+
+
+  <!-- your app's js -->
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script>
+
+  <script>
+  $(function() {
+    $("#datepicker").datepicker();
+      $('#timebutton').on('click', function (){
+      $('#datepicker').datepicker({
+  dateFormat: 'yy-mm-dd',
+  altField: '#thealtdate',
+  altFormat: 'yy-mm-dd'});
+    });
+    $('#timepicker').timepicker();
+    $('#timebutton').on('click', function (){
+      $('#timepicker').timepicker('setTime', new Date());
+    });
+  });
+  </script>
+</head>
+<body ng-app="starter">
+   <form>
+  <div class="container" ng-controller="ChatsCtrl">
+    <div class="row wave">
+      <div class="panel col-md-6 wavepanel">
+        <div class="row" style="padding: 20px;">
+          <img src="img/logo_wavecell.png">
+          <p class="sendtext">Send SMS anywhere in the world.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row textbody">
+      <div class="panel col-md-6 textpanel" >
+        <div class="row whole">
+          <div class="form-group col-lg-10">
+            <i class="glyphicon glyphicon-user"></i>
+            <label for="source" class="h4">Source</label>
+            <input type="text" class="form-control" ng-model="data.source" placeholder="Enter Name/Number" maxlength="20" pattern="[a-zA-Z0-9 ]+" required />    
+            
+          </div>
+          <div class="form-group col-lg-10">
+            <i class="glyphicon glyphicon-send"></i>
+            <label for="number" class="h4">Recipient</label>
+            <input type="text" class="form-control" ng-model="data.destination" placeholder="Enter Number e.g. (09391234567)" pattern="[0-9]+" required>
+          </div>
+          <div class="form-group col-lg-3">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <label for="date" class="h4">Date</label>
+            <input type="text" id="datepicker" ng-model="data.date" class="form-control datepicker" placeholder="Enter Date">
+          </div>
+          <div class="form-group col-lg-3">
+            <i class="glyphicon glyphicon-time"></i>
+            <label for="time" class="h4">Time</label>
+            <input type="text" id="timepicker" ng-model="data.time" class="form-control timepicker" placeholder="Enter Time">
+          </div>
+          <div class="buttontime col-lg-4">
+              <button class="btn btn-xs btn-primary" id="timebutton">Set Current Date and Time</button>
+          </div>
+          <div class="form-group col-lg-10">
+            <i class="glyphicon glyphicon-pencil"></i>
+            <label for="message" class="h4">Message</label>
+            <textarea id="message" class="form-control" rows="5" ng-model="data.body" placeholder="Enter your message (up to 140 characters)" required></textarea>
+          </div>
+          <div class="col-lg-10 send">
+            <button type="submit" id="form-submit" class="btn btn-success submit btn-lg" ng-click="sendData(data)">Send</button>
+          </div>
+          {{result}}
+        </div>
+      </div>
+    </div>
+    <div class="footer pull-right">
+      Copyright &#169; Bon Lorenz Ariola 2016
+    </div>
+  </div>
+</form> 
+</body>
+</html>

@@ -1,0 +1,71 @@
+body {
+	background: url(../img/citynight.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.wave{
+	padding: 20px;
+	margin-top:10px;
+}
+
+.wavepanel{
+	background-color:#C0C0C0 !important;
+	opacity: 0.85;
+}
+
+.wavepanel:hover{
+	opacity: 1;
+}
+
+.logo{
+	padding: 20px;
+}
+
+.textbody{
+	padding: 20px;
+	margin-top: -10px;
+
+}
+
+.whole{
+	padding: 10px 0 10px 10px;
+}
+
+.textpanel{
+	background-color: #C0C0C0 !important;
+	opacity: 0.85;
+}
+
+.textpanel:hover{
+	opacity: 1;
+}
+
+.sendtext{
+	display: inline-block;
+	padding-left: 40px;
+	font-size: 120%;"
+}
+
+.send{
+	padding: 15px;
+	padding-left: 355px !important;
+}
+
+.footer{
+	color: #FFF;
+	opacity: 0.7;
+}
+
+.footer:hover{
+	opacity: 1;
+}
+
+.buttontime{
+	display: inline-block;
+	padding-top: 45px;
+	margin-left: -10px;
+}
